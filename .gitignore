@@ -1,0 +1,17 @@
+# GitSyncStudio otomatik kuralları
+.gitupdater_backups/
+.gitupdater_versions/
+__pycache__/
+*.pyc
+*.bak
+Thumbs.db
+.DS_Store
+gitsync_master.key
+gitsync_master.key.*
+license.dat
+uretilen_keyler.txt
+uretilen_keyler.json
+iptal_durumu.json
+iptal_listesi.json
+butunluk.json
+kurtarilan_kod*.txt

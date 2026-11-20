@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "20261120_161625_010598",
+  "created_at": "2026-11-20T16:16:25+03:00",
+  "message": "Otomatik README oluşturuldu",
+  "project_hash": "6176baa6a4c30db4451f8007ed26270ef80dec59fe5ca9bdac7579602b8476d8",
+  "file_count": 7,
+  "files": [
+    {
+      "path": "assets/oto-yayin-icon.png",
+      "size": 815009,
+      "sha256": "3098b41191ae584311943da47b42fa2b22be3e5b88700c0190235fae4737bf9b"
+    },
+    {
+      "path": "assets/site.css",
+      "size": 3937,
+      "sha256": "3bc7bdb7153aac597ed9264f303c17c46d8854c2ea745d2c2aa892084522e326"
+    },
+    {
+      "path": "index.html",
+      "size": 5269,
+      "sha256": "778c8c22b4639250b1131180714d51c33d8d14082b6921be358cb3b99f370eb5"
+    },
+    {
+      "path": "privacy.html",
+      "size": 5652,
+      "sha256": "7d7c3fa0a07614e2d974e5f741229e838eebdfff94eb268c7d6fff7239a5cbe1"
+    },
+    {
+      "path": "README.md",
+      "size": 4155,
+      "sha256": "0a798c69cf22070565008089155c3ff26ddeeb4c31d943265cd03050be3c8c8c"
+    },
+    {
+      "path": "support.html",
+      "size": 2289,
+      "sha256": "f3ef7e1e773c0b801fc3b8187e88ab0f827aae4761af86f37b3cdebc05e220f8"
+    },
+    {
+      "path": "terms.html",
+      "size": 5331,
+      "sha256": "3eb82c5dac6a8a1beff39d71ac4a9245ded88ff52a1675cf1cd65eadac1bb6d6"
+    }
+  ]
+}
