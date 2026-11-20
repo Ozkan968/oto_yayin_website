@@ -1,25 +1,189 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Oto Yayın — Video içeriklerini tek yerden yönet</title>
-<meta name="description" content="Oto Yayın, yerel yapay zekâ destekli metin hazırlama, video kuyruğu ve sosyal platformlara resmî API entegrasyonları sunan Windows masaüstü uygulamasıdır.">
-<link rel="icon" href="assets/oto-yayin-icon.png"><link rel="stylesheet" href="assets/site.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Oto Yayın — Video içeriklerini tek yerden yönet</title>
+  <meta name="description" content="Oto Yayın, yerel yapay zekâ destekli metin hazırlama, video kuyruğu ve sosyal platformlara resmî API entegrasyonları sunan Windows masaüstü uygulamasıdır.">
+  <link rel="icon" href="assets/oto-yayin-icon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a class="brand" href="index.html"><img src="assets/oto-yayin-icon.png" alt="Oto Yayın uygulama simgesi">Oto Yayın</a><nav class="links" aria-label="Ana gezinme"><a href="#ozellikler">Özellikler</a><a href="#nasil-calisir">Nasıl çalışır?</a><a href="support.html">Destek</a></nav></div></header>
-<main>
-<section class="wrap hero"><div><div class="eyebrow">Windows masaüstü · İçerik iş akışı</div><h1>Videolarını hazırla.<br><span class="gradient">Yayın akışını yönet.</span></h1><p class="lead">Oto Yayın, video dosyalarını yerel bilgisayarında düzenlemene, Ollama ile platforma uygun başlık ve açıklamalar hazırlamana ve desteklenen sosyal platformların resmî API'leri üzerinden yayın iş akışını yönetmene yardımcı olur.</p><div class="actions"><a class="btn" href="#ozellikler">Özellikleri keşfet</a><a class="btn secondary" href="privacy.html">Gizlilik yaklaşımı</a></div><p class="mini">Oto Yayın bağımsız bir masaüstü yazılımıdır. YouTube, TikTok veya Instagram tarafından geliştirilmemiş ya da onaylanmış değildir.</p></div><img class="hero-art" src="assets/oto-yayin-icon.png" alt="Oto Yayın video ve yükleme simgesi"></section>
-<section class="wrap section" id="ozellikler"><div class="eyebrow">Üretim akışı</div><h2>İçerik hazırlığından yayın takibine</h2><p class="section-intro">Oto Yayın'ın amacı, tekrar eden video hazırlama ve yayın adımlarını tek bir Windows arayüzünde toplamaktır. Platformların hesap, izin, kota ve inceleme kuralları geçerliliğini korur.</p><div class="grid">
-<article class="card"><div class="num">01 · DOSYA YÖNETİMİ</div><h3>Video klasörlerini tara</h3><p>Bir klasör ve isteğe bağlı alt klasörleri seç; bulunan videoları, temel medya bilgilerini ve iş durumlarını uygulama içinde görüntüle.</p></article>
-<article class="card"><div class="num">02 · YEREL YAPAY ZEKÂ</div><h3>Metinleri yerel Ollama ile hazırla</h3><p>Video bağlamına göre başlık, açıklama ve etiket taslakları üret; metinleri yayın öncesinde gözden geçir ve düzenle.</p></article>
-<article class="card"><div class="num">03 · PLATFORM BAĞLANTILARI</div><h3>Resmî API iş akışları</h3><p>YouTube, TikTok ve Instagram Reels entegrasyonlarıyla hesap bağlantısı ve içerik gönderme adımlarını yönet. Kullanılabilirlik, platform onaylarına ve hesap uygunluğuna bağlıdır.</p></article>
-<article class="card"><div class="num">04 · KUYRUK</div><h3>Yayınları takip et</h3><p>Video başına platform işlerini, denemeleri, hata durumlarını ve yayın geçmişini uygulamanın yerel veritabanında takip et.</p></article>
-<article class="card"><div class="num">05 · ZAMANLAMA</div><h3>İş akışını planla</h3><p>YouTube zamanlaması platformun desteklediği yayın zamanı üzerinden; TikTok ve Instagram zamanlaması ise uygulama çalışır durumda kaldığı sürece yerel zamanlayıcıyla yürütülür.</p></article>
-<article class="card"><div class="num">06 · KONTROL</div><h3>Onaylı veya otomatik mod</h3><p>İçerikleri kontrol ederek yayınla veya uygun ayarlarda klasör izleme ve otomatik işleme seçeneklerini kullan. Deneme modu gerçek yükleme yapmaz.</p></article>
-</div></section>
-<section class="wrap section" id="nasil-calisir"><div class="eyebrow">Dört adım</div><h2>Nasıl çalışır?</h2><p class="section-intro">Uygulama Windows bilgisayarında çalışır. Video dosyaları, yerel veritabanı ve Ollama bağlantısı senin kontrolündedir.</p><div class="steps"><div class="step"><b>ADIM 1</b>Video klasörünü seç ve platformları belirle.</div><div class="step"><b>ADIM 2</b>Ollama ile metin taslaklarını oluştur ve düzenle.</div><div class="step"><b>ADIM 3</b>İlgili sosyal medya hesabını resmî OAuth/API akışıyla bağla.</div><div class="step"><b>ADIM 4</b>Yayınla veya taslak/iş kuyruğu durumunu takip et.</div></div></section>
-<section class="wrap section"><div class="notice"><strong>Platform izinleri hakkında</strong><br>TikTok ve diğer platformlarda bazı özellikler uygulama incelemesi, hesap türü, izin kapsamı veya kullanım kotalarına bağlıdır. İncelemeden geçmemiş TikTok Content Posting API uygulamalarında doğrudan herkese açık yayın yapılamayabilir; taslak ya da özel görünürlük kısıtları uygulanabilir.</div></section>
-</main>
-<footer class="footer"><div class="wrap footer-inner"><div>© 2026 Oto Yayın · Bağımsız masaüstü yazılımı</div><nav class="footer-links" aria-label="Yasal bağlantılar"><a href="privacy.html">Gizlilik Politikası</a><a href="terms.html">Kullanım Şartları</a><a href="support.html">Destek</a></nav></div></footer>
-</body></html>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="assets/oto-yayin-icon.png" alt="Oto Yayın uygulama simgesi">
+        Oto Yayın
+      </a>
+      <nav class="links" aria-label="Ana gezinme">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#nasil-calisir">Nasıl çalışır?</a>
+        <a href="support.html">Destek</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div class="reveal">
+        <div class="eyebrow">
+          <span class="pulse-dot"></span>
+          Windows masaüstü · İçerik iş akışı
+        </div>
+        <h1>Videolarını hazırla.<br><span class="gradient">Yayın akışını yönet.</span></h1>
+        <p class="lead">Oto Yayın, video dosyalarını yerel bilgisayarında düzenlemene, Ollama ile platforma uygun başlık ve açıklamalar hazırlamana ve desteklenen sosyal platformların resmî API'leri üzerinden yayın iş akışını yönetmene yardımcı olur.</p>
+        <div class="actions">
+          <a class="btn" href="#ozellikler">Özellikleri keşfet</a>
+          <a class="btn secondary" href="privacy.html">Gizlilik yaklaşımı</a>
+        </div>
+        <p class="mini">Oto Yayın bağımsız bir masaüstü yazılımıdır. YouTube, TikTok veya Instagram tarafından geliştirilmemiş ya da onaylanmış değildir.</p>
+      </div>
+
+      <div class="hero-stage reveal" style="--delay: 0.14s;">
+        <div class="hero-orb-glow"></div>
+        <div class="signal-ring"></div>
+        <div class="signal-ring r2"></div>
+
+        <div class="float-badge b1">
+          <span class="dot-cyan"></span>
+          Ollama · Yerel AI
+        </div>
+
+        <div class="hero-card-3d">
+          <img class="hero-art" src="assets/oto-yayin-icon.png" alt="Oto Yayın video ve yükleme simgesi">
+        </div>
+
+        <div class="float-badge b2">
+          <span class="dot-orange"></span>
+          Resmî API İş Akışı
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="ozellikler">
+      <div class="reveal">
+        <div class="eyebrow">Üretim akışı</div>
+        <h2>İçerik hazırlığından yayın takibine</h2>
+        <p class="section-intro">Oto Yayın'ın amacı, tekrar eden video hazırlama ve yayın adımlarını tek bir Windows arayüzünde toplamaktır. Platformların hesap, izin, kota ve inceleme kuralları geçerliliğini korur.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-head">
+            <div class="num">01 · DOSYA YÖNETİMİ</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+          </div>
+          <h3>Video klasörlerini tara</h3>
+          <p>Bir klasör ve isteğe bağlı alt klasörleri seç; bulunan videoları, temel medya bilgilerini ve iş durumlarını uygulama içinde görüntüle.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="num">02 · YEREL YAPAY ZEKÂ</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+          </div>
+          <h3>Metinleri yerel Ollama ile hazırla</h3>
+          <p>Video bağlamına göre başlık, açıklama ve etiket taslakları üret; metinleri yayın öncesinde gözden geçir ve düzenle.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="num">03 · PLATFORM BAĞLANTILARI</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+          </div>
+          <h3>Resmî API iş akışları</h3>
+          <p>YouTube, TikTok ve Instagram Reels entegrasyonlarıyla hesap bağlantısı ve içerik gönderme adımlarını yönet. Kullanılabilirlik, platform onaylarına ve hesap uygunluğuna bağlıdır.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="num">04 · KUYRUK</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+          </div>
+          <h3>Yayınları takip et</h3>
+          <p>Video başına platform işlerini, denemeleri, hata durumlarını ve yayın geçmişini uygulamanın yerel veritabanında takip et.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="num">05 · ZAMANLAMA</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <h3>İş akışını planla</h3>
+          <p>YouTube zamanlaması platformun desteklediği yayın zamanı üzerinden; TikTok ve Instagram zamanlaması ise uygulama çalışır durumda kaldığı sürece yerel zamanlayıcıyla yürütülür.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="num">06 · KONTROL</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <h3>Onaylı veya otomatik mod</h3>
+          <p>İçerikleri kontrol ederek yayınla veya uygun ayarlarda klasör izleme ve otomatik işleme seçeneklerini kullan. Deneme modu gerçek yükleme yapmaz.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="nasil-calisir">
+      <div class="reveal">
+        <div class="eyebrow">Dört adım</div>
+        <h2>Nasıl çalışır?</h2>
+        <p class="section-intro">Uygulama Windows bilgisayarında çalışır. Video dosyaları, yerel veritabanı ve Ollama bağlantısı senin kontrolündedir.</p>
+      </div>
+
+      <div class="steps-wrap">
+        <div class="steps-track" aria-hidden="true"></div>
+        <div class="steps">
+          <div class="step is-active">
+            <b>ADIM 1</b>
+            <p>Video klasörünü seç ve platformları belirle.</p>
+          </div>
+          <div class="step">
+            <b>ADIM 2</b>
+            <p>Ollama ile metin taslaklarını oluştur ve düzenle.</p>
+          </div>
+          <div class="step">
+            <b>ADIM 3</b>
+            <p>İlgili sosyal medya hesabını resmî OAuth/API akışıyla bağla.</p>
+          </div>
+          <div class="step">
+            <b>ADIM 4</b>
+            <p>Yayınla veya taslak/iş kuyruğu durumunu takip et.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="notice">
+        <strong>Platform izinleri hakkında</strong><br>
+        TikTok ve diğer platformlarda bazı özellikler uygulama incelemesi, hesap türü, izin kapsamı veya kullanım kotalarına bağlıdır. İncelemeden geçmemiş TikTok Content Posting API uygulamalarında doğrudan herkese açık yayın yapılamayabilir; taslak ya da özel görünürlük kısıtları uygulanabilir.
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© 2026 Oto Yayın · Bağımsız masaüstü yazılımı</div>
+      <nav class="footer-links" aria-label="Yasal bağlantılar">
+        <a href="privacy.html">Gizlilik Politikası</a>
+        <a href="terms.html">Kullanım Şartları</a>
+        <a href="support.html">Destek</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
