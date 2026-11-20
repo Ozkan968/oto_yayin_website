@@ -1,60 +1,76 @@
-# Oto Yayın — Video İçerik Yönetim Platformu
 
-Oto Yayın, video içeriklerini tek bir yerden yönetmenize yardımcı olan Windows masaüstü uygulamasıdır. Yerel bilgisayarınızda video dosyalarını düzenlemenizi, yapay zeka destekli metin hazırlama araçlarıyla başlık ve açıklamalar oluşturmanızı ve sosyal medya platformlarının resmi API'leri üzerinden yayın iş akışını yönetmenizi sağlar.
+# Oto Yayın – Resmî Web Sitesi
 
-> **Önemli Not:** Oto Yayın bağımsız bir masaüstü yazılımıdır. YouTube, TikTok veya Instagram tarafından geliştirilmemiş ya da onaylanmış değildir.
+Oto Yayın, içerik üreticilerinin sosyal medya videolarını düzenlemesine, planlamasına ve yayınlama süreçlerini yönetmesine yardımcı olmak amacıyla geliştirilen bir masaüstü uygulamasıdır.
 
-## Özellikler
+Bu depo, Oto Yayın uygulamasının resmî tanıtım, gizlilik politikası, kullanım şartları ve destek web sitesini barındırır.
 
-- **Yerel Video Yönetimi:** Kullanıcının yerel video klasörlerine erişir ve dosya yollarını, medya bilgilerini (süre, çözünürlük, boyut) ve SHA-256 özetlerini yerel olarak işler.
-- **Yapay Zeka Destekli Metin Hazırlama:** Yerel Ollama kurulumunu kullanarak platforma uygun başlık ve açıklamalar hazırlar.
-- **Video Kuyruğu ve Takip:** Oluşturulan veya düzenlenen içeriklerin yayın kuyruğunu ve zamanlama durumunu yönetir.
-- **Sosyal Platform Entegrasyonları:** Desteklenen sosyal platformların resmi API'leri üzerinden video yayınlama veya taslak gönderme iş akışlarını yönetir (YouTube, TikTok, Instagram).
-- **İçerik Düzenleme:** Video dosyalarını yerel bilgisayar üzerinde düzenleme yeteneği sunar.
+## 🚀 Uygulama Hakkında
 
-## Kullanılan Teknolojiler
+Oto Yayın, sosyal medya içerik yönetimini tek bir masaüstü uygulamasında bir araya getirmeyi hedefler.
 
-Verilen kod örneklerine ve proje yapısına dayanarak şu teknolojilerin kullanıldığı tespit edilmiştir:
+### Temel Özellikler
 
-- **HTML5:** Sayfa yapısı ve semantik etiketler için (`index.html`, `privacy.html` vb.).
-- **CSS3 (Modern):** Özelleştirilmiş CSS değişkenleri (`--bg`, `--cyan`), Flexbox, Grid ve backdrop-filter efektleri için (`assets/site.css`).
-- **Yerel Yapay Zeka:** Ollama kütüphanesi veya API entegrasyonu.
-- **Medya İşleme:** FFmpeg ve FFprobe (PATH içinde olması beklenir).
+- Video dosyalarını yerel klasörlerden yönetme
+- Yayın kuyruğu oluşturma
+- Video açıklaması ve hashtag hazırlama
+- Yerel Ollama yapay zekâ entegrasyonu
+- Sosyal medya hesaplarını bağlama
+- Desteklenen platformlarda içerik yayınlama
+- Yayın süreçlerini takip etme
 
-## Proje Yapısı
+### Desteklenen Platformlar
 
-```text
-oto_yayin_website/
-├── assets/
-│   ├── oto-yayin-icon.png
-│   └── site.css
-├── index.html
-├── privacy.html
-├── support.html
-└── terms.html
-```
+- TikTok
+- YouTube
+- Instagram
 
-## Kurulum / Çalıştırma
+Platform özellikleri, ilgili servislerin API erişim izinlerine ve uygulama onaylarına bağlıdır.
 
-Verilen dosya listesinde ve kod örneklerinde doğrudan kurulum komutları (örn. `npm install`, `pip install`) veya derleme adımları bulunmamaktadır. Proje, statik web sayfaları (`index.html` vb.) içerdiği için sunucu gerektirmez ancak uygulamanın çalışması için aşağıdaki ön koşulların sağlanması gerektiği destek dokümantasyonunda belirtilmiştir:
+## 📄 Web Sitesi Sayfaları
 
-1.  **Ollama:** Uygulamanın yerel yapay zeka özelliklerini kullanabilmesi için bilgisayarınızda Ollama'nın çalışıyor olması ve ayarlarda doğru bir adres tanımlanmış olması gerekir.
-2.  **FFmpeg:** Video işleme ve kurgu işlemleri için FFmpeg ve FFprobe kurulumunun PATH içinde bulunması gerekmektedir.
-3.  **API Anahtarları:** TikTok veya Instagram gibi platformlarla bağlantı kurulabilmesi için Client Key/Secret, OAuth token ve ilgili izin belirteçlerinin doğru yapılandırılmış olması gerekir.
+| Dosya | Açıklama |
+|---|---|
+| `index.html` | Uygulama tanıtım sayfası |
+| `privacy.html` | Gizlilik politikası |
+| `terms.html` | Kullanım şartları |
+| `support.html` | Destek ve iletişim |
 
-*Not: Bu proje dizini statik web içeriği barındırır. Masaüstü uygulamasının kendisi bu dizinde yer almamaktadır.*
+## 🛠️ GitHub Pages Kurulumu
 
-## Kullanım
+1. GitHub üzerinde `oto-yayin-site` isimli bir depo oluşturun.
+2. Depoyu Public olarak ayarlayın.
+3. Bu depodaki dosyaları ana dizine yükleyin.
+4. Settings → Pages bölümünü açın.
+5. Build and deployment altında `Deploy from a branch` seçin.
+6. Branch olarak `main`, klasör olarak `/(root)` seçin.
+7. Save düğmesine basın.
 
-1.  **İçerik Seçimi:** Yerel video klasörlerini seçerek dosyaları listeyin.
-2.  **Metin Oluşturma:** Ollama entegrasyonu üzerinden otomatik başlık ve açıklama taslakları oluşturun.
-3.  **Düzenleme:** Taslakları yerel bilgisayarınızda düzenleyin.
-4.  **Yayın Kuyruğu:** İçerikleri kuyruğa ekleyin ve zamanlama ayarlarını yapın.
-5.  **Yayın:** Sosyal medya platformlarının API'leri üzerinden içeriği yayınlayın veya taslak olarak gönderin.
+Yayınlama tamamlandığında GitHub Pages adresiniz kullanılabilir olacaktır.
 
-## Katkıda Bulunma
+## 🔐 Gizlilik ve Güvenlik
 
-Bu proje, video içeriklerini yönetmek için geliştirilmiş bağımsız bir masaüstü yazılımıdır. Kod tabanı statik web dosyalarından oluşmaktadır. Yeni özellikler eklemek veya hata bildirmek için destek e-postasına başvurulabilir.
+Oto Yayın, kullanıcıların sosyal medya hesaplarıyla güvenli şekilde bağlantı kurmasını hedefler.
 
-- **Destek:** [GEÇERLİ DESTEK E-POSTASI]
-- **Gizlilik Politikası:** Verilerin yerel olarak işlendiği ve hangi verilerin üçüncü taraf hizmetlerle paylaşılabileceği hakkında bilgi için `privacy.html` dosyasını inceleyin.
+- Kullanıcıların sosyal medya şifreleri istenmez.
+- Hesap bağlantıları ilgili platformların resmî yetkilendirme sistemleri üzerinden gerçekleştirilir.
+- API erişimleri ilgili platformların izinlerine tabidir.
+- Kullanıcı verilerinin işlenmesi hakkında ayrıntılar Gizlilik Politikası sayfasında açıklanır.
+
+## 📬 Destek
+
+Uygulama veya web sitesiyle ilgili sorularınız için Destek sayfasını ziyaret edebilirsiniz.
+
+Destek e-postası: `[DESTEK E-POSTANIZ]`
+
+## ⚖️ Yasal Bilgilendirme
+
+- [Gizlilik Politikası](privacy.html)
+- [Kullanım Şartları](terms.html)
+
+Oto Yayın, TikTok, YouTube veya Instagram tarafından geliştirilmiş ya da resmî olarak onaylanmış bir ürün değildir. Platform adları ve markaları ilgili sahiplerine aittir.
+
+---
+
+**Oto Yayın**  
+Yapay zekâ destekli sosyal medya içerik yönetimi.
