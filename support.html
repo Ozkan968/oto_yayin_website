@@ -3,24 +3,68 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Destek — Oto Yayın</title>
+  <title>Destek — Oto Yayın | STAB</title>
   <meta name="description" content="Oto Yayın destek ve sorun giderme bilgileri.">
   <link rel="icon" href="assets/oto-yayin-icon.png">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/site.js" defer></script>
 </head>
-<body>
+<body id="ust">
   <header class="top">
     <div class="wrap nav">
       <a class="brand" href="index.html">
-        <img src="assets/oto-yayin-icon.png" alt="Oto Yayın">
-        Oto Yayın
+        <span class="brand-icon-wrap">
+          <img src="assets/oto-yayin-icon.png" alt="Oto Yayın">
+        </span>
+        <span class="brand-text">
+          <span>Oto Yayın</span>
+          <span class="brand-sub">STAB · Windows Studio</span>
+        </span>
       </a>
-      <nav class="links">
+
+      <nav class="nav-center" id="nav-center" aria-label="Ana gezinme">
         <a href="index.html">Ana sayfa</a>
         <a href="privacy.html">Gizlilik</a>
         <a href="terms.html">Kullanım Şartları</a>
+        <a href="support.html" class="active">Destek</a>
       </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Tema renk ayarlarını aç">
+          <span class="theme-swatch-dot" aria-hidden="true"></span>
+          <span>Tema</span>
+        </button>
+
+        <a class="nav-cta" href="mailto:ozkandonmez123@gmail.com">E-posta Gönder</a>
+
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menüyü aç">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="theme-popover" id="theme-popover" role="dialog" aria-label="Tema ve renk ayarları">
+          <div class="theme-pop-header">
+            <span>Tema & Renk Ayarı</span>
+            <button type="button" class="theme-reset-btn" id="theme-reset-btn">Sıfırla</button>
+          </div>
+          <span class="theme-label">Renk Paleti</span>
+          <div class="theme-presets">
+            <button type="button" class="preset-btn active" data-preset="cyber"><span class="preset-dots"><i style="background:#45d5ff"></i><i style="background:#ff913d"></i></span><span>Siber Turkuaz</span></button>
+            <button type="button" class="preset-btn" data-preset="emerald"><span class="preset-dots"><i style="background:#10b981"></i><i style="background:#f59e0b"></i></span><span>Zümrüt Altın</span></button>
+            <button type="button" class="preset-btn" data-preset="stab"><span class="preset-dots"><i style="background:#a855f7"></i><i style="background:#ec4899"></i></span><span>STAB Neon</span></button>
+            <button type="button" class="preset-btn" data-preset="cobalt"><span class="preset-dots"><i style="background:#38bdf8"></i><i style="background:#818cf8"></i></span><span>Safir Buz</span></button>
+          </div>
+          <span class="theme-label">Arka Plan Modu</span>
+          <div class="theme-modes">
+            <button type="button" class="mode-btn active" data-mode="navy">Lacivert</button>
+            <button type="button" class="mode-btn" data-mode="carbon">Karbon</button>
+            <button type="button" class="mode-btn" data-mode="light">Aydınlık</button>
+          </div>
+          <label class="custom-color-row" for="custom-accent-picker">
+            <span>Özel Vurgu Rengi</span>
+            <input type="color" id="custom-accent-picker" value="#45d5ff">
+          </label>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -31,8 +75,8 @@
       <p class="lead">Kurulum, yerel Ollama bağlantısı, video kuyruğu veya sosyal medya API bağlantısı hakkında yardım al.</p>
 
       <div class="support-box">
-        <h2>İletişim</h2>
-        <p>Destek e-postası: <span class="placeholder">[GEÇERLİ DESTEK E-POSTASI]</span></p>
+        <h2>İletişim · STAB Destek</h2>
+        <p>Geliştirici / İşletme: <strong>Ozkan — STAB</strong><br>Destek e-postası: <a href="mailto:ozkandonmez123@gmail.com">ozkandonmez123@gmail.com</a></p>
         <p>Hata bildirirken Python sürümünü, hata mesajını ve ilgili uygulama logunu paylaşabilirsin. Client Secret, OAuth token, parola veya kişisel API anahtarı gönderme.</p>
       </div>
 
@@ -65,13 +109,53 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
-      <div>© 2026 Oto Yayın</div>
-      <nav class="footer-links">
-        <a href="index.html">Ana sayfa</a>
-        <a href="privacy.html">Gizlilik Politikası</a>
-        <a href="terms.html">Kullanım Şartları</a>
-      </nav>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="assets/oto-yayin-icon.png" alt="Oto Yayın">
+            <span class="brand-text">
+              <span>Oto Yayın</span>
+              <span class="brand-sub">STAB Yazılım</span>
+            </span>
+          </a>
+          <p>Yerel yapay zekâ destekli metin hazırlama, video kuyruğu ve resmî sosyal platform API iş akışları sunan bağımsız Windows masaüstü yazılımı.</p>
+          <span class="dev-pill">Geliştirici: Ozkan · İşletme: STAB</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Uygulama</h4>
+          <ul>
+            <li><a href="index.html#ozellikler">Özellikler</a></li>
+            <li><a href="index.html#nasil-calisir">Nasıl çalışır?</a></li>
+            <li><a href="support.html">Destek &amp; Sorun Giderme</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Yasal Belgeler</h4>
+          <ul>
+            <li><a href="privacy.html">Gizlilik Politikası</a></li>
+            <li><a href="terms.html">Kullanım Şartları</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>İletişim</h4>
+          <ul>
+            <li><a href="mailto:ozkandonmez123@gmail.com">ozkandonmez123@gmail.com</a></li>
+            <li><span>Geliştirici: Ozkan (STAB)</span></li>
+          </ul>
+          <button type="button" class="copy-email-btn" data-copy-email="ozkandonmez123@gmail.com">
+            E-postayı kopyala
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Oto Yayın · Ozkan — STAB. Bağımsız masaüstü yazılımı.</div>
+        <a class="back-top-btn" href="#ust">Yukarı çık ↑</a>
+      </div>
     </div>
   </footer>
 </body>

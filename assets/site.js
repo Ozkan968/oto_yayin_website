@@ -1,7 +1,70 @@
 (() => {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const STORAGE_KEY = "otoyayin_theme_v1";
 
-  // 1. Arka Plan Katmanları ve İlerleme Çubuğu Enjeksiyonu
+  const PRESETS = {
+    cyber: { name: "Siber Turkuaz", cyan: "#45d5ff", orange: "#ff913d" },
+    emerald: { name: "Zümrüt & Altın", cyan: "#10b981", orange: "#f59e0b" },
+    stab: { name: "STAB Neon", cyan: "#a855f7", orange: "#ec4899" },
+    cobalt: { name: "Safir Buz", cyan: "#38bdf8", orange: "#818cf8" }
+  };
+
+  const hexToRgb = (hex) => {
+    const clean = hex.replace("#", "").trim();
+    const full = clean.length === 3 ? clean.split("").map((c) => c + c).join("") : clean;
+    const num = parseInt(full, 16);
+    if (Number.isNaN(num)) return "69, 213, 255";
+    return `${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}`;
+  };
+
+  let themeState = {
+    preset: "cyber",
+    mode: "navy",
+    cyan: "#45d5ff",
+    orange: "#ff913d"
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && saved.cyan && saved.orange) {
+      themeState = { ...themeState, ...saved };
+    }
+  } catch (_) {}
+
+  const applyTheme = (state, persist = true) => {
+    themeState = state;
+    const root = document.documentElement;
+    root.style.setProperty("--cyan", state.cyan);
+    root.style.setProperty("--cyan-rgb", hexToRgb(state.cyan));
+    root.style.setProperty("--orange", state.orange);
+    root.style.setProperty("--orange-rgb", hexToRgb(state.orange));
+
+    if (state.mode && state.mode !== "navy") {
+      root.setAttribute("data-mode", state.mode);
+    } else {
+      root.removeAttribute("data-mode");
+    }
+
+    document.querySelectorAll(".preset-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.preset === state.preset);
+    });
+    document.querySelectorAll(".mode-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.mode === state.mode);
+    });
+    const picker = document.getElementById("custom-accent-picker");
+    if (picker) picker.value = state.cyan;
+
+    if (persist) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (_) {}
+    }
+  };
+
+  // İlk yüklemede kayıtlı temayı uygula
+  applyTheme(themeState, false);
+
+  // 1. Arka Plan Katmanları ve İlerleme Çubuğu
   const progressBar = document.createElement("div");
   progressBar.className = "scroll-progress";
   document.body.prepend(progressBar);
@@ -18,7 +81,86 @@
   canvas.id = "bg-canvas";
   document.body.prepend(canvas);
 
-  // 2. Kaydırma İlerleme Çubuğu & Yapışkan Header Efekti
+  // 2. Tema Ayar Paneli & Mobil Menü Etkileşimleri
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
+  const themePopover = document.getElementById("theme-popover");
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const navCenter = document.getElementById("nav-center");
+
+  if (themeToggleBtn && themePopover) {
+    themeToggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      themePopover.classList.toggle("open");
+      if (navCenter) navCenter.classList.remove("open");
+    });
+
+    themePopover.addEventListener("click", (e) => e.stopPropagation());
+
+    document.addEventListener("click", () => {
+      themePopover.classList.remove("open");
+      if (navCenter) navCenter.classList.remove("open");
+    });
+
+    themePopover.querySelectorAll(".preset-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.preset;
+        const p = PRESETS[key];
+        if (p) {
+          applyTheme({ ...themeState, preset: key, cyan: p.cyan, orange: p.orange });
+        }
+      });
+    });
+
+    themePopover.querySelectorAll(".mode-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applyTheme({ ...themeState, mode: btn.dataset.mode });
+      });
+    });
+
+    const picker = document.getElementById("custom-accent-picker");
+    if (picker) {
+      picker.addEventListener("input", (e) => {
+        applyTheme({ ...themeState, preset: "custom", cyan: e.target.value });
+      });
+    }
+
+    const resetBtn = document.getElementById("theme-reset-btn");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        applyTheme({
+          preset: "cyber",
+          mode: "navy",
+          cyan: PRESETS.cyber.cyan,
+          orange: PRESETS.cyber.orange
+        });
+      });
+    }
+  }
+
+  if (mobileMenuBtn && navCenter) {
+    mobileMenuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navCenter.classList.toggle("open");
+      if (themePopover) themePopover.classList.remove("open");
+    });
+  }
+
+  // 3. E-posta Kopyalama Butonu
+  document.querySelectorAll("[data-copy-email]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const email = btn.getAttribute("data-copy-email");
+      const original = btn.innerHTML;
+      try {
+        await navigator.clipboard.writeText(email);
+        btn.textContent = "✓ E-posta kopyalandı";
+        setTimeout(() => {
+          btn.innerHTML = original;
+        }, 2000);
+      } catch (_) {}
+    });
+  });
+
+  // 4. Kaydırma İlerleme Çubuğu & Yapışkan Header
   const header = document.querySelector(".top");
   const updateScrollUI = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -33,7 +175,7 @@
   window.addEventListener("scroll", updateScrollUI, { passive: true });
   updateScrollUI();
 
-  // 3. Kademeli Scroll Reveal (IntersectionObserver)
+  // 5. Kademeli Scroll Reveal
   const revealTargets = document.querySelectorAll(
     ".reveal, .card, .step, .notice, .support-box, .faq-item"
   );
@@ -41,8 +183,7 @@
   revealTargets.forEach((el, idx) => {
     el.classList.add("reveal");
     if (!el.style.getPropertyValue("--delay")) {
-      const stagger = (idx % 6) * 0.06;
-      el.style.setProperty("--delay", `${stagger}s`);
+      el.style.setProperty("--delay", `${(idx % 6) * 0.06}s`);
     }
   });
 
@@ -63,39 +204,34 @@
     revealTargets.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // 4. İmleç Takipli Radial Spotlight Kartlar
-  const spotlightItems = document.querySelectorAll(".card, .step");
-  spotlightItems.forEach((item) => {
+  // 6. İmleç Takipli Spotlight Kartlar
+  document.querySelectorAll(".card, .step").forEach((item) => {
     item.addEventListener("pointermove", (e) => {
       const rect = item.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      item.style.setProperty("--mouse-x", `${x}px`);
-      item.style.setProperty("--mouse-y", `${y}px`);
+      item.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+      item.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
     });
   });
 
-  // 5. Hero 3D Perspektif Tilt Efekti
+  // 7. Hero 3D Konsol Tilt Efekti
   const heroStage = document.querySelector(".hero-stage");
-  const heroCard3D = document.querySelector(".hero-card-3d");
-  if (heroStage && heroCard3D && !prefersReduced) {
+  const heroConsole = document.querySelector(".hero-console");
+  if (heroStage && heroConsole && !prefersReduced) {
     heroStage.addEventListener("pointermove", (e) => {
       const rect = heroStage.getBoundingClientRect();
       const relX = (e.clientX - rect.left) / rect.width - 0.5;
       const relY = (e.clientY - rect.top) / rect.height - 0.5;
-      const rotateY = relX * 16;
-      const rotateX = -relY * 16;
-      heroCard3D.style.animation = "none";
-      heroCard3D.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(1.02)`;
+      heroConsole.style.animation = "none";
+      heroConsole.style.transform = `rotateX(${(-relY * 12).toFixed(2)}deg) rotateY(${(relX * 12).toFixed(2)}deg) scale(1.015)`;
     });
 
     heroStage.addEventListener("pointerleave", () => {
-      heroCard3D.style.transform = "";
-      heroCard3D.style.animation = "";
+      heroConsole.style.transform = "";
+      heroConsole.style.animation = "";
     });
   }
 
-  // 6. Adım Kartları Otomatik Vurgulama Döngüsü
+  // 8. Adım Kartları Otomatik Vurgulama
   const steps = document.querySelectorAll(".step");
   if (steps.length > 0 && !prefersReduced) {
     let activeStep = 0;
@@ -121,7 +257,7 @@
     }, 2400);
   }
 
-  // 7. İnteraktif Parçacık & Sinyal Ağı Canvas Animasyonu
+  // 9. Dinamik Tema Renkli Parçacık Ağı Canvas
   if (!prefersReduced && canvas.getContext) {
     const ctx = canvas.getContext("2d");
     let width = (canvas.width = window.innerWidth);
@@ -143,7 +279,7 @@
       height = canvas.height = window.innerHeight;
     });
 
-    const count = Math.min(54, Math.floor((width * height) / 26000));
+    const count = Math.min(52, Math.floor((width * height) / 27000));
     const particles = Array.from({ length: count }, (_, i) => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -155,6 +291,12 @@
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
+      const cyanRgb = getComputedStyle(document.documentElement)
+        .getPropertyValue("--cyan-rgb")
+        .trim() || "69, 213, 255";
+      const orangeRgb = getComputedStyle(document.documentElement)
+        .getPropertyValue("--orange-rgb")
+        .trim() || "255, 145, 61";
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -174,9 +316,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.isOrange
-          ? "rgba(255, 145, 61, 0.55)"
-          : "rgba(69, 213, 255, 0.52)";
+        ctx.fillStyle = p.isOrange ? `rgba(${orangeRgb}, 0.52)` : `rgba(${cyanRgb}, 0.5)`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -189,8 +329,8 @@
             const alpha = (1 - dist / 130) * 0.14;
             ctx.strokeStyle =
               p.isOrange || p2.isOrange
-                ? `rgba(255, 145, 61, ${alpha})`
-                : `rgba(69, 213, 255, ${alpha})`;
+                ? `rgba(${orangeRgb}, ${alpha})`
+                : `rgba(${cyanRgb}, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }

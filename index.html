@@ -3,24 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Oto Yayın — Video içeriklerini tek yerden yönet</title>
+  <title>Oto Yayın — Video içeriklerini tek yerden yönet | STAB</title>
   <meta name="description" content="Oto Yayın, yerel yapay zekâ destekli metin hazırlama, video kuyruğu ve sosyal platformlara resmî API entegrasyonları sunan Windows masaüstü uygulamasıdır.">
   <link rel="icon" href="assets/oto-yayin-icon.png">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/site.js" defer></script>
 </head>
-<body>
+<body id="ust">
   <header class="top">
     <div class="wrap nav">
       <a class="brand" href="index.html">
-        <img src="assets/oto-yayin-icon.png" alt="Oto Yayın uygulama simgesi">
-        Oto Yayın
+        <span class="brand-icon-wrap">
+          <img src="assets/oto-yayin-icon.png" alt="Oto Yayın uygulama simgesi">
+        </span>
+        <span class="brand-text">
+          <span>Oto Yayın</span>
+          <span class="brand-sub">STAB · Windows Studio</span>
+        </span>
       </a>
-      <nav class="links" aria-label="Ana gezinme">
-        <a href="#ozellikler">Özellikler</a>
+
+      <nav class="nav-center" id="nav-center" aria-label="Ana gezinme">
+        <a href="#ozellikler" class="active">Özellikler</a>
         <a href="#nasil-calisir">Nasıl çalışır?</a>
         <a href="support.html">Destek</a>
+        <a href="privacy.html">Gizlilik</a>
       </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Tema renk ayarlarını aç">
+          <span class="theme-swatch-dot" aria-hidden="true"></span>
+          <span>Tema</span>
+        </button>
+
+        <a class="nav-cta" href="#nasil-calisir">İş Akışını Gör</a>
+
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menüyü aç">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <div class="theme-popover" id="theme-popover" role="dialog" aria-label="Tema ve renk ayarları">
+          <div class="theme-pop-header">
+            <span>Tema & Renk Ayarı</span>
+            <button type="button" class="theme-reset-btn" id="theme-reset-btn">Sıfırla</button>
+          </div>
+
+          <span class="theme-label">Renk Paleti</span>
+          <div class="theme-presets">
+            <button type="button" class="preset-btn active" data-preset="cyber">
+              <span class="preset-dots"><i style="background:#45d5ff"></i><i style="background:#ff913d"></i></span>
+              <span>Siber Turkuaz</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="emerald">
+              <span class="preset-dots"><i style="background:#10b981"></i><i style="background:#f59e0b"></i></span>
+              <span>Zümrüt Altın</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="stab">
+              <span class="preset-dots"><i style="background:#a855f7"></i><i style="background:#ec4899"></i></span>
+              <span>STAB Neon</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="cobalt">
+              <span class="preset-dots"><i style="background:#38bdf8"></i><i style="background:#818cf8"></i></span>
+              <span>Safir Buz</span>
+            </button>
+          </div>
+
+          <span class="theme-label">Arka Plan Modu</span>
+          <div class="theme-modes">
+            <button type="button" class="mode-btn active" data-mode="navy">Lacivert</button>
+            <button type="button" class="mode-btn" data-mode="carbon">Karbon</button>
+            <button type="button" class="mode-btn" data-mode="light">Aydınlık</button>
+          </div>
+
+          <label class="custom-color-row" for="custom-accent-picker">
+            <span>Özel Vurgu Rengi</span>
+            <input type="color" id="custom-accent-picker" value="#45d5ff">
+          </label>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -29,14 +88,26 @@
       <div class="reveal">
         <div class="eyebrow">
           <span class="pulse-dot"></span>
-          Windows masaüstü · İçerik iş akışı
+          Windows masaüstü · STAB İçerik İş Akışı
         </div>
         <h1>Videolarını hazırla.<br><span class="gradient">Yayın akışını yönet.</span></h1>
         <p class="lead">Oto Yayın, video dosyalarını yerel bilgisayarında düzenlemene, Ollama ile platforma uygun başlık ve açıklamalar hazırlamana ve desteklenen sosyal platformların resmî API'leri üzerinden yayın iş akışını yönetmene yardımcı olur.</p>
+
         <div class="actions">
-          <a class="btn" href="#ozellikler">Özellikleri keşfet</a>
+          <a class="btn" href="#ozellikler">
+            <span>Özellikleri keşfet</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
           <a class="btn secondary" href="privacy.html">Gizlilik yaklaşımı</a>
         </div>
+
+        <div class="platform-strip" aria-label="Desteklenen teknolojiler ve platformlar">
+          <span class="platform-pill"><span class="dot"></span>Yerel Ollama AI</span>
+          <span class="platform-pill"><span class="dot"></span>YouTube API</span>
+          <span class="platform-pill"><span class="dot orange"></span>TikTok Content API</span>
+          <span class="platform-pill"><span class="dot orange"></span>Instagram Reels</span>
+        </div>
+
         <p class="mini">Oto Yayın bağımsız bir masaüstü yazılımıdır. YouTube, TikTok veya Instagram tarafından geliştirilmemiş ya da onaylanmış değildir.</p>
       </div>
 
@@ -45,18 +116,46 @@
         <div class="signal-ring"></div>
         <div class="signal-ring r2"></div>
 
-        <div class="float-badge b1">
-          <span class="dot-cyan"></span>
-          Ollama · Yerel AI
-        </div>
+        <div class="hero-console">
+          <div class="console-topbar">
+            <div class="console-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="console-title">Oto Yayın · Masaüstü İş Akışı</div>
+          </div>
 
-        <div class="hero-card-3d">
-          <img class="hero-art" src="assets/oto-yayin-icon.png" alt="Oto Yayın video ve yükleme simgesi">
-        </div>
+          <div class="console-hero-row">
+            <img class="hero-art" src="assets/oto-yayin-icon.png" alt="Oto Yayın video ve yükleme simgesi">
+            <div class="console-app-meta">
+              <strong>Oto Yayın Studio</strong>
+              <span>Yerel SQLite &amp; Ollama Bağlantılı</span>
+              <span class="console-status-tag">● localhost:11434 Hazır</span>
+            </div>
+          </div>
 
-        <div class="float-badge b2">
-          <span class="dot-orange"></span>
-          Resmî API İş Akışı
+          <div class="console-queue">
+            <div class="queue-item">
+              <div class="queue-item-left">
+                <b>01 · Klasör Taraması</b>
+                <small>Medya süresi, çözünürlük ve SHA-256 özeti</small>
+              </div>
+              <span class="queue-badge ready">Yerel</span>
+            </div>
+            <div class="queue-item">
+              <div class="queue-item-left">
+                <b>02 · Ollama Metin Taslağı</b>
+                <small>Başlık, açıklama ve platform etiketleri</small>
+              </div>
+              <span class="queue-badge ready">AI Taslak</span>
+            </div>
+            <div class="queue-item">
+              <div class="queue-item-left">
+                <b>03 · Resmî OAuth / API Kuyruğu</b>
+                <small>YouTube, TikTok &amp; Instagram Reels</small>
+              </div>
+              <span class="queue-badge api">Resmî API</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -176,13 +275,53 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
-      <div>© 2026 Oto Yayın · Bağımsız masaüstü yazılımı</div>
-      <nav class="footer-links" aria-label="Yasal bağlantılar">
-        <a href="privacy.html">Gizlilik Politikası</a>
-        <a href="terms.html">Kullanım Şartları</a>
-        <a href="support.html">Destek</a>
-      </nav>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="assets/oto-yayin-icon.png" alt="Oto Yayın">
+            <span class="brand-text">
+              <span>Oto Yayın</span>
+              <span class="brand-sub">STAB Yazılım</span>
+            </span>
+          </a>
+          <p>Yerel yapay zekâ destekli metin hazırlama, video kuyruğu ve resmî sosyal platform API iş akışları sunan bağımsız Windows masaüstü yazılımı.</p>
+          <span class="dev-pill">Geliştirici: Ozkan · İşletme: STAB</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Uygulama</h4>
+          <ul>
+            <li><a href="index.html#ozellikler">Özellikler</a></li>
+            <li><a href="index.html#nasil-calisir">Nasıl çalışır?</a></li>
+            <li><a href="support.html">Destek &amp; Sorun Giderme</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Yasal Belgeler</h4>
+          <ul>
+            <li><a href="privacy.html">Gizlilik Politikası</a></li>
+            <li><a href="terms.html">Kullanım Şartları</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>İletişim</h4>
+          <ul>
+            <li><a href="mailto:ozkandonmez123@gmail.com">ozkandonmez123@gmail.com</a></li>
+            <li><span>Geliştirici: Ozkan (STAB)</span></li>
+          </ul>
+          <button type="button" class="copy-email-btn" data-copy-email="ozkandonmez123@gmail.com">
+            E-postayı kopyala
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Oto Yayın · Ozkan — STAB. Bağımsız masaüstü yazılımı.</div>
+        <a class="back-top-btn" href="#ust">Yukarı çık ↑</a>
+      </div>
     </div>
   </footer>
 </body>
